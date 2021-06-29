@@ -1,13 +1,12 @@
 var inputText = document.getElementById("inputText");
-var shoppingBox = document.getElementById("shoppingBox");
-var zahl = 0;
+
+
 function add()
 {
-    var div = document.createElement("div");
+    var liste = document.getElementById("liste");
 
-    zahl++;
-    var span = document.createElement("span");
-    span.innerHTML = zahl + ".  " +inputText.value;
+    var li = document.createElement("li");
+    li.innerHTML = inputText.value;
 
     var divIcon = document.createElement("div");
     divIcon.classList.add("icons");
@@ -16,7 +15,8 @@ function add()
     check_icon.classList.add("far", "fa-check-square");
     check_icon.onclick = function dekor()
     {
-        span.style.textDecoration = "line-through";
+        li.childNodes[1].style.textDecoration = "line-through";
+        
         check_icon.style.color = "green";
     }
 
@@ -25,14 +25,16 @@ function add()
     kreuz_icon.style.color = "red";
     kreuz_icon.onclick = function loschen()
     {
-        div.style.display = "none";
+        li.style.display = "none";
     }
 
-    shoppingBox.appendChild(div);
 
-    div.appendChild(span);
-    div.appendChild(divIcon);
+
+    liste.appendChild(li);
+    li.appendChild(divIcon);
     divIcon.appendChild(check_icon);
     divIcon.appendChild(kreuz_icon);
 
+    inputText.value ="";
+    
 }

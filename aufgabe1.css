@@ -61,14 +61,27 @@ button
 }
 button:hover
 {background-color: #f8773b;}
-
-#shoppingBox >div
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: my-counter;
+  }
+ 
+ul li
 {
     border-bottom: 1px solid #353434;
     padding: 4px 0;
-    
+    counter-increment: my-counter;
     display:flex;
     justify-content: space-between;
 }
 .icons i
 {margin-left: 5px;}
+
+li::before
+{
+    content: counter(my-counter); 
+    padding-right: 8px;
+    
+}
